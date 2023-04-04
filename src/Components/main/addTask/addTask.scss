@@ -3,80 +3,100 @@
   margin: 0;
   padding: 0;
 }
+
 .add_Task {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin-top: 100px;
+
   width: 100%;
 
-   .form {
-      width: 1000px;
-      min-height: 240px;
-      box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-       h1 {
-         color: #212529;
-         margin-left: 2rem;
-         margin-top: 2rem;
-         margin-bottom: 1rem;
-         font-size: 2.5rem;
-         font-family: "Ubuntu", sans-serif;
-       }
+  .form {
+    width: 1000px;
+    min-height: 240px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    margin-bottom: 100px;
+
+    h1 {
+      color: #212529;
+      margin-left: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      font-family: "Ubuntu", sans-serif;
+    }
 
 
-       Form {
-         display: flex;
-         flex-direction: column;
-         margin: 0 2rem;
+    Form {
+      display: flex;
+      flex-direction: column;
+      margin: 0 2rem;
 
-          input {
-            position: relative;
-            display: block;
-            outline: none;
-            width: 100%;
-            height: calc(1.5em + 0.75rem + 2px);
-            padding: 0.375rem 0.75rem;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid #ced4da;
-            border-radius: 0.25rem;
-            margin-bottom: 0.25rem;
-          }
+      input {
+        position: relative;
+        display: block;
+        outline: none;
+        width: 100%;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
 
-         input:focus {
-           border: 1px solid #17a2b8;
-           box-shadow: 0 1px 20px #17a2b8;
-         }
-          input:nth-child(2) {
-            margin-top: 20px;
-          }
-         .button-form {
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           border: none;
-           font-family: "Ubuntu";
-           font-weight: bold;
-           width: 98px;
-           height: 28px;
-           border-radius: 5px;
-           color: #fff;
-           background-color: #17a2b8;
-           margin-top: 10px;
-            i {
-              font-size: 1rem;
-              padding-left: 10px;
-            }
-         }
-         .button-form:active {
-           box-shadow: 0 1px 20px #17a2b8;
-         }
-       }
+      input:focus {
+        border: 1px solid #17a2b8;
+        box-shadow: 0 1px 10px #17a2b8;
+      }
+
+      input:nth-child(2) {
+        margin-top: 20px;
+      }
+
+      .button-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        font-family: "Ubuntu";
+        font-weight: bold;
+        width: 98px;
+        height: 28px;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #17a2b8;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        i {
+          font-size: 1rem;
+          padding-left: 10px;
+        }
+      }
+
+      .button-form:active {
+        box-shadow: 0 1px 20px #17a2b8;
+      }
+    }
 
   }
+   .task {
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     width: 100%;
+
+   }
   .error {
     color: #fc8181;
     font-size: 0.75rem;
