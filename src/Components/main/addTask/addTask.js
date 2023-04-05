@@ -10,12 +10,18 @@ const API_URL = "https://todo-api.coderslab.pl/api";
 const API_KEY = "e2044884-0610-4783-ada8-e107b039f785";
 
 const AddTask = () => {
-    const [task, setTask] = useState([])
     const [tasks, setTasks] = useState([])
 
-    console.log(tasks)
 
 
+
+    const newListOfTask = (taskId) => {
+        setTasks(prevTasks => {
+            return prevTasks.filter(task => {
+                return task.id !== taskId
+            })
+        })
+    }
 
 
     useEffect(() => {
@@ -29,14 +35,11 @@ const AddTask = () => {
             setTasks(data.data)
         })
 
-    }, []);
+    }, [tasks]);
 
 
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        setTask(prevTask => [...prevTask, values
-        ])
-
 
         fetch(`${API_URL}/tasks`, {
             method: "POST",
@@ -48,7 +51,7 @@ const AddTask = () => {
         })
             .then(response => response.json())
             .then(data => {
-               console.log(data);
+               setTasks(prevTasks => [prevTasks, data.data]);
             })
             .catch(error => {
                 console.log(error);
@@ -56,7 +59,7 @@ const AddTask = () => {
         actions.resetForm()
     }
 
-    if(!task) return null
+    if(!tasks) return null
     return (
             <section className={"add_Task"}>
 
@@ -65,7 +68,7 @@ const AddTask = () => {
                  <Formik
                      initialValues={{
                          status: "open",
-                         tittle: "",
+                         title: "",
                          description: ""
                      }}
                      validationSchema={advancedSchemas}
@@ -75,7 +78,7 @@ const AddTask = () => {
                          <Form>
                              <CustomInput
 
-                                 name={"tittle"}
+                                 name={"title"}
                                  type={"text"}
                                  placeholder={"Enter your task tittle!"}
                              />
@@ -104,7 +107,7 @@ const AddTask = () => {
              </section>
 
                 <section className={"task"}>
-                    <Task tasks={tasks}/>
+                    <Task tasks={tasks} setNewTask={newListOfTask}  API_URL={API_URL} API_KEY={API_KEY}/>
                 </section>
 
 
