@@ -12,9 +12,6 @@ const API_KEY = "e2044884-0610-4783-ada8-e107b039f785";
 const AddTask = () => {
     const [tasks, setTasks] = useState([])
 
-
-
-
     const newListOfTask = (taskId) => {
         setTasks(prevTasks => {
             return prevTasks.filter(task => {
@@ -24,16 +21,32 @@ const AddTask = () => {
     }
 
 
-    useEffect(() => {
-        fetch(`${API_URL}/tasks`, {
+
+    const fetchTask = async () => {
+        const respons = await fetch(`${API_URL}/tasks`, {
             headers: {
                 "Authorization": API_KEY
             }
-        }).then(response => {
-           return response.json()
-        }).then(data => {
-            setTasks(data.data)
         })
+        const data = (await respons.json()).data
+
+        for(const el of data){
+            const operationRespons = await fetch(`${API_URL}/tasks/${el.id}/operations`, {
+                headers: {
+                    "Authorization": API_KEY
+                }
+            })
+            const operationsData = (await operationRespons.json()).data
+            el.operations = operationsData
+
+        }
+        setTasks(data)
+
+    }
+
+
+    useEffect(  () => {
+        fetchTask()
 
     }, [tasks]);
 
