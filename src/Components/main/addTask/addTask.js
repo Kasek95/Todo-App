@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {advancedSchemas} from "../schemas";
 import {Form, Formik} from "formik";
 import CustomInput from "./CustomInput";
-import Task from "./Task";
+import AllTask from "./AllTask";
 import "./addTask.scss"
 import "./task.scss"
 
@@ -40,6 +40,7 @@ const AddTask = () => {
             el.operations = operationsData
 
         }
+
         setTasks(data)
 
     }
@@ -120,7 +121,7 @@ const AddTask = () => {
              </section>
 
                 <section className={"task"}>
-                    <Task tasks={tasks} setNewTask={newListOfTask}  API_URL={API_URL} API_KEY={API_KEY}/>
+                    <AllTask tasks={tasks} setNewTask={newListOfTask} API_URL={API_URL} API_KEY={API_KEY}/>
                 </section>
 
 

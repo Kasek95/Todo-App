@@ -3,7 +3,7 @@ import React, {useState,useEffect} from "react";
 import SingielTask from "./SingielTask";
 
 
-const Task = ({tasks, API_URL,API_KEY, setNewTask}) => {
+const AllTask = ({tasks, API_URL,API_KEY, setNewTask}) => {
 
     const deleteItem = (taskId) => {
         fetch(`${API_URL}/tasks/${taskId}`, {
@@ -39,4 +39,4 @@ const Task = ({tasks, API_URL,API_KEY, setNewTask}) => {
 
 }
 
-export default Task;
+export default AllTask;
