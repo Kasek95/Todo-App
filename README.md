@@ -1,5 +1,10 @@
 Finish 
-
+Technoglogy i use in this Project: 
+1. React
+2. JSX
+3. SASS
+4. NodeModules
+5. API
 
 
 # Getting Started with Create React App
