@@ -1,5 +1,5 @@
 Finish 
-Technoglogy i use in this Project: 
+Technology i use in this Project is: 
 1. React
 2. JSX
 3. SASS
