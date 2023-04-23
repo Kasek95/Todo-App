@@ -5,6 +5,7 @@ Technology i use in this Project is:
 3. SASS
 4. NodeModules
 5. API
+6.React-Redux
 
 
 # Getting Started with Create React App
